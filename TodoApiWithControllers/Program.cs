@@ -1,4 +1,5 @@
 ﻿using TodoApiWithControllers.Models;
+using TodoApiWithControllers.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TodoContext>(options => options.UseInMemoryDatabase("TodoList"));
+builder.Services.AddScoped<ITodoService, TodoService>();
 
 var app = builder.Build();
 
