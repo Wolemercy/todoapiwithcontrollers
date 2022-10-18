@@ -15,7 +15,7 @@ public class TodoItemsControllerTests
 
         var expectedResult = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool())
             .Generate();
         
@@ -43,7 +43,7 @@ public class TodoItemsControllerTests
 
         var todoItemCreateStub = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool())
             .Generate();
         
@@ -64,7 +64,7 @@ public class TodoItemsControllerTests
     {
         var expectedResult = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool())
             .Generate();
 
@@ -90,7 +90,7 @@ public class TodoItemsControllerTests
     {
         var expectedResult = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool())
             .Generate();
 
@@ -111,7 +111,7 @@ public class TodoItemsControllerTests
     {
         var expectedResult = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 10))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool())
             .Generate(2);
 
@@ -137,7 +137,7 @@ public class TodoItemsControllerTests
     {
         var todoItemFaker = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool());
 
         var todoItemStub = todoItemFaker.Generate();
@@ -159,7 +159,7 @@ public class TodoItemsControllerTests
     {
         var todoItemFaker = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool());
 
         var todoItemStub = todoItemFaker.Generate();
@@ -181,7 +181,7 @@ public class TodoItemsControllerTests
     {
         var todoItemFaker = new Faker<TodoItemDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb())
+            .RuleFor(u => u.Name, f => f.Hacker.Verb())
             .RuleFor(u => u.IsCompleted, f => f.Random.Bool());
 
         var todoItemStub = todoItemFaker.Generate();
@@ -203,7 +203,7 @@ public class TodoItemsControllerTests
     {
         var todoItemUpdateFaker = new Faker<TodoItemUpdateDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb());
+            .RuleFor(u => u.Name, f => f.Hacker.Verb());
 
         var todoItemStub = todoItemUpdateFaker.Generate();
 
@@ -224,7 +224,7 @@ public class TodoItemsControllerTests
     {
         var todoItemUpdateFaker = new Faker<TodoItemUpdateDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb());
+            .RuleFor(u => u.Name, f => f.Hacker.Verb());
 
         var todoItemStub = todoItemUpdateFaker.Generate();
 
@@ -245,7 +245,7 @@ public class TodoItemsControllerTests
     {
         var todoItemUpdateFaker = new Faker<TodoItemUpdateDTO>()
             .RuleFor(u => u.Id, f => f.Random.Long(1, 1))
-            .RuleFor(u => u.Name, f => f.Hacker.IngVerb());
+            .RuleFor(u => u.Name, f => f.Hacker.Verb());
 
         var todoItemStub = todoItemUpdateFaker.Generate();
 
