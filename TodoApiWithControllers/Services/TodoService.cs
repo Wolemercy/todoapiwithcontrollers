@@ -18,9 +18,10 @@ namespace TodoApiWithControllers.Services
         // Get all TodoItems
         public async Task<IEnumerable<TodoItemDTO>> GetTodoItems()
         {
-            return await _context.Todo
-                .Select(ele => ItemToDTO(ele))
-                .ToListAsync();
+            var result = _context.Todo
+                .Select(ele => ItemToDTO(ele));
+
+            return await Task.FromResult(result.ToList());
         }
 
         // Get a TodoItem
