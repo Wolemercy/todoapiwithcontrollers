@@ -10,7 +10,7 @@ namespace TodoApiWithControllers.Models
         {
         }
 
-        public DbSet<TodoItem> Todo { get; set; } = null!;
+        public virtual DbSet<TodoItem> Todo { get; set; } = null!;
     }
 }
 

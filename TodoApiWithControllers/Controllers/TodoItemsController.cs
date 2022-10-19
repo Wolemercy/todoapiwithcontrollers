@@ -23,7 +23,7 @@ namespace TodoApiWithControllers.Controllers
 
         // GET: api/TodoItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodo()
+        public async Task<ActionResult<IEnumerable<TodoItemDTO>>> GetTodoItems()
         {
             return Ok(await _srv.GetTodoItems());
         }
@@ -54,8 +54,6 @@ namespace TodoApiWithControllers.Controllers
 
             if(await _srv.UpdateTodoItem(id, todoItemDTO)) return NoContent();
             else return NotFound();
-
-            
         }
 
         // PATCH: api/TodoItems/5
