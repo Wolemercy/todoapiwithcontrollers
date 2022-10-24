@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoApiWithControllers.Models;
 using TodoApiWithControllers.Services;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace TodoApiWithControllers.Controllers
 {
@@ -15,10 +17,12 @@ namespace TodoApiWithControllers.Controllers
     public class TodoItemsController : ControllerBase
     {
         private readonly ITodoService _srv;
+        private readonly IValidator<TodoItemDTO> _validator;
 
-        public TodoItemsController(ITodoService srv)
+        public TodoItemsController(ITodoService srv, IValidator<TodoItemDTO> validator)
         {
             _srv = srv;
+            _validator = validator;
         }
 
         // GET: api/TodoItems
@@ -75,6 +79,18 @@ namespace TodoApiWithControllers.Controllers
         [HttpPost]
         public async Task<ActionResult<TodoItemDTO>> PostTodoItem(TodoItemDTO todoItemDTO)
         {
+            ValidationResult result = _validator.Validate(todoItemDTO);
+            if (!result.IsValid)
+            {
+                var errors = new Dictionary<string, string>();
+                foreach(var error in result.Errors)
+                {
+                    errors[error.PropertyName] = error.ErrorMessage;
+                }
+                System.Diagnostics.Debug.WriteLine(errors);
+
+                return BadRequest(errors);
+            }
             var createdTodoItem = await _srv.CreateTodoItem(todoItemDTO);
 
             if (createdTodoItem == null) return BadRequest();
