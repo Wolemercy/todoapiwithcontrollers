@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+    todo-server:
+        container_name: todo-server
+        build: .
+        ports:
+            - "8000:80"
+        depends_on:
+            - todo-db
+            
+    todo-db:
+        container_name: todo-db
+        image: mysql:8.0
+        ports:
+          - "3306:3306"
+        environment:
+          MYSQL_RANDOM_ROOT_PASSWORD: 1
+          MYSQL_DATABASE: todoitemapi
+          MYSQL_USER: dbuser
+          MYSQL_PASSWORD: dbuserpassword
+        volumes:
+          - ./dbdata:/var/lib/mysql
+        restart: always

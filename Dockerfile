@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0-focal AS build
 WORKDIR /src
 
 COPY ["./TodoApiWithControllers/TodoApiWithControllers.csproj", "./"]
-RUN dotnet restore "./TodoApiWithControllers.csproj" --disable-parallel
+RUN dotnet restore "./TodoApiWithControllers.csproj"
 
 COPY ./TodoApiWithControllers .
 WORKDIR "/src/."

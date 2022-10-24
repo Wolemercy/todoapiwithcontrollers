@@ -1,28 +1,15 @@
-﻿using TodoApiWithControllers.Models;
-using TodoApiWithControllers.Services;
-using Microsoft.EntityFrameworkCore;
+﻿using TodoApiWithControllers;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-builder.Services.AddDbContext<TodoContext>(options => options.UseInMemoryDatabase("TodoList"));
-builder.Services.AddScoped<ITodoService, TodoService>();
+var startup = new Startup(builder.Configuration);
+startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
+var env = app.Environment;
 
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
+startup.Configure(app, env);
 
 app.MapControllers();
 
 app.Run();
-
