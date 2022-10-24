@@ -7,10 +7,12 @@ services:
             - "8000:80"
         depends_on:
             - todo-db
+        environment:
+          - ASPNETCORE_ENVIRONMENT=Development
             
     todo-db:
         container_name: todo-db
-        image: mysql:8.0
+        image: mysql/mysql-server:8.0
         ports:
           - "3306:3306"
         environment:

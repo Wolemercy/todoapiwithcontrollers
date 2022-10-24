@@ -13,6 +13,7 @@ namespace TodoApiWithControllers.Services
         public TodoService(TodoContext context)
         {
             _context = context;
+            _context.Database.EnsureCreated();
         }
 
         // Get all TodoItems

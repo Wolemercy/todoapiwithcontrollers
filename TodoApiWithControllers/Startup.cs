@@ -25,7 +25,7 @@ namespace TodoApiWithControllers
             services.AddScoped<IValidator<TodoItemDTO>, TodoItemDtoValidator>();
 
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContextPool<TodoContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            services.AddDbContext<TodoContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
