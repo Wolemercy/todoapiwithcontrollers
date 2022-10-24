@@ -11,6 +11,11 @@ namespace TodoApiWithControllers.Models
         }
 
         public virtual DbSet<TodoItem> Todo { get; set; } = null!;
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+
+        //}
     }
 }
 
