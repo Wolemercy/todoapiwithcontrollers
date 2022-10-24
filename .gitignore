@@ -406,4 +406,3 @@ ASALocalRun/
 
 # Database
 dbdata/
-**/Migrations/
